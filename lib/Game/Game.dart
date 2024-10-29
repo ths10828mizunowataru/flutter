@@ -9,7 +9,7 @@ class TimeTrialScreen extends StatefulWidget {
 }
 
 class _TimeTrialScreenState extends State<TimeTrialScreen> {
-  int countdown = 3;
+  int countdown = 2;
   int gameTime = 30;
   double progress = 1.0;
   Color backgroundColor = Colors.white;
