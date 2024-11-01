@@ -15,14 +15,13 @@ class MyApp extends StatelessWidget {
 class RankPageScreens extends StatelessWidget {
   RankPageScreens({Key? key}) : super(key: key);
 
-  // ダミーデータのランキングリスト
-  //データベースと繋げたらここに書く
   final List<Map<String, dynamic>> rankData = [
     {"username": "User01", "score": 95.0},
     {"username": "User02", "score": 89.0},
     {"username": "User03", "score": 85.0},
     {"username": "User04", "score": 78.5},
     {"username": "User05", "score": 70.0},
+    {"username": "User06", "score": 70.0},
   ];
 
   @override
@@ -33,17 +32,36 @@ class RankPageScreens extends StatelessWidget {
       appBar: AppBar(
         title: Text('Ranking'),
       ),
-      body: ListView.builder(
-        itemCount: rankData.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            leading: Text("${index + 1}", style: TextStyle(fontSize: 20)),
-            title: Text(rankData[index]["username"]),
-            trailing: Text("${rankData[index]["score"]}%"),
-          );
-        },
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              "ランキング",
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: rankData.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  leading: index == 0
+                      ? Icon(Icons.emoji_events,
+                          color: const Color.fromARGB(255, 255, 191, 0))
+                      : Text("${index + 1}", style: TextStyle(fontSize: 20)),
+                  title: Text(rankData[index]["username"]),
+                  trailing: Text("${rankData[index]["score"]}%"),
+                );
+              },
+            ),
+          ),
+        ],
       ),
-      backgroundColor: (const Color.fromARGB(255, 218, 219, 211)),
+      backgroundColor: const Color.fromARGB(255, 218, 219, 211),
     );
   }
 }
