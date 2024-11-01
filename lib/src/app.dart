@@ -26,11 +26,11 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  static const _screens = [
-    TopPageScreens(),
-    MapPageScreens(),
+  static var _screens = [
+    const TopPageScreens(),
+    const MapPageScreens(),
     RankPageScreens(),
-    MenuPageScreens(),
+    const MenuPageScreens(),
   ];
 
   int _selectedIndex = 0;

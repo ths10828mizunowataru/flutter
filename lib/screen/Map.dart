@@ -34,6 +34,16 @@ class MapPageScreens extends StatelessWidget {
           height: 388, // 必要に応じて調整
           child: Stack(
             children: [
+              Container(
+                decoration: BoxDecoration(
+                    color: Colors.yellowAccent,
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Colors.blue)),
+                child: Text(
+                  '新宿区',
+                  style: TextStyle(fontSize: 44),
+                ),
+              ),
               Positioned(
                 left: 90,
                 top: 183,
