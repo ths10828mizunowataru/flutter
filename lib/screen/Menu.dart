@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screen/TopPage.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_application_1/detail/manual.dart';
+import 'package:flutter_application_1/manual/manual.dart';
 
 void main() => runApp(MyApp());
 

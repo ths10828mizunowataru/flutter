@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screen/Create.dart';
 import 'package:flutter_application_1/screen/Map.dart';
 import 'package:flutter_application_1/screen/Menu.dart';
 import 'package:flutter_application_1/screen/Rank.dart';
 import 'package:flutter_application_1/screen/TopPage.dart';
+
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -13,7 +18,97 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Aqua Guardian',
       theme: ThemeData(primaryColor: Colors.blue[400]),
-      home: MyStatefulWidget(),
+      home: const WelcomeScreen(),
+    );
+  }
+}
+
+class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Container(
+          width: 450,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [const Color.fromARGB(255, 89, 164, 226)!, Colors.white],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: 80,
+                height: 80,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 0, 234, 255),
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 3,
+                      blurRadius: 7,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: Image.asset(
+                    'assets/light.png', // 画像のパス
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+              Text(
+                'ようこそ!Aqua Guardianへ!',
+                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: TextField(
+                  decoration: InputDecoration(
+                    labelText: 'Username',
+                    border: UnderlineInputBorder(),
+                  ),
+                ),
+              ),
+              SizedBox(height: 30),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MyStatefulWidget(),
+                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                ),
+                child: Text('次へ'),
+              ),
+              SizedBox(height: 20),
+              Text(
+                'Aqua Guardian',
+                style: TextStyle(fontSize: 15, color: Colors.grey),
+              ),
+              SizedBox(height: 10),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

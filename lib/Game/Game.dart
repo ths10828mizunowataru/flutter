@@ -251,6 +251,11 @@ class ResultScreen extends StatelessWidget {
           Text("除去率: ${scorePercentage.toStringAsFixed(1)}%",
               style: TextStyle(fontSize: 30)),
           TextButton(
+              style: TextButton.styleFrom(
+                fixedSize: const Size(180, 55),
+                foregroundColor: const Color.fromARGB(255, 0, 0, 0),
+                backgroundColor: const Color.fromARGB(255, 167, 209, 244),
+              ),
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => RankPageScreens()));
