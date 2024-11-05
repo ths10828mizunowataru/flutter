@@ -74,8 +74,8 @@ class _TimeTrialScreenState extends State<TimeTrialScreen> {
           if (color == getSelectedColor()) {
             setState(() {
               score++;
-              pollutionImages
-                  .removeWhere((element) => element.key == images[i].key);
+              pollutionImages =
+                  pollutionImages.where((image) => image != images[i]).toList();
             });
           }
         },
