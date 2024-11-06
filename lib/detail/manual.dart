@@ -4,6 +4,8 @@ import 'package:flutter_application_1/screen/Menu.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
 }
 
 class ManualPage extends StatelessWidget {
-  const ManualPage({Key? key}) : super(key: key);
+  const ManualPage({super.key});
 
   @override
   Widget build(BuildContext context) {
